@@ -1,7 +1,10 @@
 class Unit(object):
-    """Temperature object containing a float temperature value and string unit."""
+    """Unit object containing a float value and string unit."""
     
+    numerator = []
+    denominator = []
     conversions = dict()
+    
     def __init__(self, value, unit):
         super().__init__()
         self.value = value
@@ -38,25 +41,30 @@ class Unit(object):
 
     def __sub__(self, other):
         new_value = self.value - other.changeUnit(self.unit)
-        return Unit(new_value, self.unit)
+        return self.__class__(new_value, self.unit)
 
     def __mul__(self, other):
         new_value = self.value * other
-        return Unit(new_value, self.unit)
+        return self.__class__(new_value, self.unit)
 
     def __rmul__(self, other):
         new_value = self.value * other
-        return Unit(new_value, self.unit)
+        return self.__class__(new_value, self.unit)
 
     def __truediv__(self, other):
         new_value = self.value / other
-        return Unit(new_value, self.unit)
+        return self.__class__(new_value, self.unit)
 
     def __floordiv__(self, other):
         new_value = self.value // other
-        return Unit(new_value, self.unit)
+        return self.__class__(new_value, self.unit)
 
-class Temperature(Unit):
+class TempUnit(Unit):
+    K = 'K'
+    C = 'C'
+    R = 'R'
+    F = 'F'
+
     conversions = {
         'K' : 1,
     }
@@ -109,7 +117,8 @@ class Temperature(Unit):
         else:
             return None    
 
-class Length(Unit):
+class LengthUnit(Unit):
+
     conversions = {
         'fm' : 1000000000000000,
         'pm' : 1000000000000,
@@ -132,3 +141,88 @@ class Length(Unit):
         'mi' : 0.000621371
     }
 
+class CurrentUnit(Unit):
+    amp = 'A'
+    mAmp = 'mA'
+    kAmp = 'kA'
+    conversions = {
+        'A' : 1,
+        'mA' : 1000,
+        'kA' : 0.001
+    }
+
+class TimeUnit(Unit):
+    ms = 'ms'
+    sec = 's'
+    minute = 'min'
+    hr = 'hr'
+    day = 'day'
+    
+    conversions = {
+        'ms' : 1000,
+        's' : 1,
+        'min' : 1.0 / 60.0,
+        'hr' : 1.0 / 60.0 / 60.0,
+        'day' : 1.0 / 60.0 / 60.0 / 24.0
+    }
+
+class PressureUnit(Unit):
+    bar = 'bar'
+    mbar = 'mbar'
+    ubar = 'ubar'
+    atm = 'atm'
+    Pa = 'Pa'
+    hPa = 'hPa'
+    kPa = 'kPa'
+    MPa = 'MPa'
+    mmHg = 'mmHg'
+    Torr = 'mmHg'
+    mmH2O = 'mmH2O'
+    mH2O = 'mH2O'
+    psi = 'psi'
+    ftH2O = 'ftH2O'
+    inH2O = 'inH2O'
+    inHg = 'inHg'
+    kgcm2 = 'kgcm2'
+
+    conversions = {
+        'bar' : 1.0,
+        'mbar' : 1000.0,
+        'ubar' : 1000000.0,
+        'Pa' : 100000.0,
+        'hPa' : 1000.0,
+        'kPa' : 100.0,
+        'MPa' : 0.1,
+        'kgcm2' : 1.01972,
+        'atm' : 0.986923,
+        'mmHg' : 750.062,
+        'mmH2O' : 10197.162129779,
+        'mH2O' : 10.197162129779,
+        'psi' : 14.5038,
+        'ftH2O' : 33.455256555148,
+        'inH2O' : 401.865,
+        'inHg' : 29.53
+    }
+
+class MassUnit(Unit):
+    g = 'g'
+    mg = 'mg'
+    kg = 'kg'
+    metricTon = 'metricTon'
+    
+    lb = 'lb'
+    slug = 'slug'
+    oz = 'oz'
+    gr = 'gr'
+    ton = 'ton'
+
+    conversions = {
+        'kg' : 1.0,
+        'g' : 1000.0,
+        'mg' : 1000000.0,
+        'metricTon' : 1.0 / 1000.0,
+        'lb' : 2.2046226218,
+        'oz' : 35.274,
+        'gr' : 2.2046226218 * 7000.0,
+        'ton' : 2.2046226218 / 2000.0
+    }
