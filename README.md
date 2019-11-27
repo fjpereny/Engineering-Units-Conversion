@@ -89,7 +89,7 @@ instance of the object the new value unit.
 When using EngUnit objects to perform operations, a new EngUnit object will be returned with 
 the first object's unit by default.
 
-#### Addition & Subtraction
+#### Addition
 ```python 
 p1 = Power(100, Power.Unit.kW)
 print(Power)
@@ -106,6 +106,29 @@ yields the following output:
 100 kW
 15000 BTU/min
 363.764089398442 kW
+```
+
+#### Subtraction
+
+```python
+d1 = Length(100, Length.Unit.m)
+print(d1)
+
+d2 = Length(10, Length.Unit.ft)
+print(d2)
+
+d3 = d1 - d2
+print(d3)
+d3.changeUnit(Length.Unit.inch)
+print(d3)
+```
+
+yields the following ouput:
+```txt
+100 m
+10 ft
+96.952000097536 m
+3817.0099390400023 inch
 ```
 
 #### Multiplication & Division
