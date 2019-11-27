@@ -1,6 +1,6 @@
 # Engineering-Units-Conversion
 ## Description
-Python Engineering Unit Conversion Library is a current work in grogress.  The aim of the libary is 
+Python Engineering Unit Conversion Library is a current work in progress.  The aim of the library is 
 to provide users with easy management of engineering units and to avoid mistakes when working with 
 and converting between different units of measurement.
 
@@ -18,9 +18,9 @@ Custom units can be added by copying and pasting one of the generic
 classes and changing the data. This library will continue to be updated to include
 additional engineering units.
 
-## Installation & Dependancies
+## Installation & Dependencies
 This library is compatible with Python 3 and does not use
-any external dependancies.
+any external dependencies.
 
 ## Usage
 ### Adding EngUnitConversion to your project:
@@ -38,7 +38,7 @@ from EngUnitConversion import *
 
 ### Creating an EngUnit Object
 All EngUnit objects are instantiated using a float value and a initial unit of measurement.
-The following code creates a Temperature with a value of 100 and unit of degrees Farenheit.
+The following code creates a Temperature with a value of 100 and unit of degree Fahrenheit.
 ```python
 t1 = Temperature(100, Temperature.Unit.F)
 ```
