@@ -123,7 +123,7 @@ d3.changeUnit(Length.Unit.inch)
 print(d3)
 ```
 
-yields the following ouput:
+yields the following output:
 ```txt
 100 m
 10 ft
