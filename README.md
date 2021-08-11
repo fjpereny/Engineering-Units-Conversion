@@ -82,7 +82,7 @@ yields the following output:
 37.77777777777783
 37.77777777777783 C
 ```
-Notice how the function changeUnit() both returns the value as a float changes the current
+Notice how the function changeUnit() both returns the value as a float and changes the current
 instance of the object the new value unit.
 
 ### Working with Units
