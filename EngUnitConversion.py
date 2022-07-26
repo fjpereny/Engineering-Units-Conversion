@@ -424,3 +424,23 @@ class Power(EngUnit):
         'kgf-m/sec' : 101.97162129779
     }
 
+class Flow(EngUnit):
+    """Creates a flow object that can store a flow value and 
+    convert between units of flow."""
+
+    class Unit():
+        BBL_hr = 'BBL/hr'
+        BBL_min = 'BBL/min'
+        BBL_sec = 'BBL/sec'
+        GAL_hr = 'GAL/hr'
+        GAL_min = 'GAL/min'
+        GAL_sec = 'GAL/sec'
+
+    conversions = {
+        'BBL/hr' : 3600.0,
+        'BBL/min' : 60.0,
+        'BBL/sec' : 1.0,
+        'GAL/hr' : 151200.0,
+        'GAL/min' : 2520.0,
+        'GAL/sec' : 42.0,
+    }
